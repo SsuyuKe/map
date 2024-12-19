@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from "@/store/user";
 import { message } from "antd";
+import Logo from "@/images/vote-eat-high-resolution-logo-grayscale-transparent.png"
 
 const Header = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Header = () => {
       <div className="flex justify-center" onClick={() => changePage("/")}>
         <img
           className="w-[8rem] md:w-[15rem] hover:cursor-pointer"
-          src="/src/images/vote-eat-high-resolution-logo-grayscale-transparent.png"
+          src={Logo}
           alt="logo"
         />
       </div>
