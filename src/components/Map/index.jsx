@@ -28,8 +28,10 @@ const Map = () => {
 
   const getRestaurantData = async () => {
     const radius = 5000;
+    const apiKey = import.meta.env.VITE_APP_GOOGLE_PLACE_API_KEY;
+
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/api/places`, {
+      const { data } = await axios.get('/api/places', {
         params: {
           lat: userLocation.lat,
           lng: userLocation.lng,
@@ -60,7 +62,7 @@ const Map = () => {
 
   return (
     <div className="m-3 rounded-sm overflow-hidden">
-      {restaurants.length && (
+      {restaurants.length > 0 && (
         <LoadScript googleMapsApiKey={import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY}>
         <GoogleMap mapContainerStyle={mapContainerStyle} center={userLocation} zoom={14}>
           {restaurants.map((restaurant) => (

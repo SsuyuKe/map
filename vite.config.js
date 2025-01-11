@@ -14,11 +14,14 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-    css: {
-      postcss: {
-        plugins: [tailwindcss()]
-      }
+  },
+  css: {
+    postcss: {
+      plugins: [tailwindcss()]
     }
+  },
+  build: {
+    outDir: 'dist',
   },
   server: {
     proxy: {
